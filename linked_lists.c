@@ -6,9 +6,20 @@ struct node{
     struct node *next;
 }Node;
 
+int count=0;
+struct node* head=NULL;
 
+
+
+void print_nodes(){
+    struct node* temp=head;
+    while(temp!=NULL){
+        printf("%d\n",temp->data);
+        temp=temp->next;    
+    };
+    
+};
 void insert_first(int x){
-    struct node* head;
     struct node* new_node= (struct node*) malloc(sizeof(Node));
     struct node* temp=head;
 
@@ -17,27 +28,22 @@ void insert_first(int x){
         new_node->data=x;
         new_node->next=NULL;
         head=new_node;
-        printf("%d\n",new_node->data);
+        //printf("%d\n",new_node->data);
         //count+=1;
     }
     else{
         new_node->data=x;
         new_node->next=head;
         head=new_node;
-        printf("%d\n",new_node->data);
+        //printf("%d\n",new_node->data);
         //count+=1;
     };
-
-    while(temp!=0){
-        temp=temp->next;
-        
-    }
-    
 }
 
 
+
 void insert_last(int x){
-    struct node* head;
+    
     struct node* new_node = (struct node*)malloc(sizeof(Node));
     struct node* temp=head; 
     if(head==NULL){
@@ -66,8 +72,9 @@ int main(void){
     int x=10;
     int y=20;
     int z=30;
-    insert_first(10);
-    insert_first(20);
-    insert_first(30);
+    insert_last(40);
+    insert_last(50);
+    insert_last(60);
+    print_nodes();
 
 }
